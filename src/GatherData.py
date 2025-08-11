@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from datetime import datetime, timedelta
+from datetime import timedelta
 import math
 import json
 import time
@@ -100,7 +100,7 @@ def processActivityData(client, activity_id=None, max_retries=3):
             return Activity(**tempDict)
 
         except RateLimitExceeded as e:
-            print(f"Rate limit exceeded. Waiting 60 seconds...")
+            print("Rate limit exceeded. Waiting 60 seconds...")
             time.sleep(60)
             continue
 
@@ -229,7 +229,7 @@ def main():
         time.sleep(0.5)
 
     # Summary
-    print(f"\n=== Processing Complete ===")
+    print("\n=== Processing Complete ===")
     print(f"Successfully processed: {len(activityArray)} activities")
     print(f"Failed activities: {len(failed_activities)}")
 

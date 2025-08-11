@@ -1,10 +1,8 @@
 import webbrowser
 import json
 import os
-from pydantic import BaseModel
 from dotenv import load_dotenv
 from stravalib.client import Client
-from datetime import datetime, timedelta
 
 load_dotenv()
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
