@@ -82,7 +82,8 @@ def runningPlan(client, runningAnalysis):
     get quicker the plan should be structured to improve speed and endurace, incorporating different run 
     types such as: interval training, tempo runs, easy runs and long runs. While prioritising aduquete 
     rest and recovery. The plan should include all days of the week and start from the monday following: {now}.
-    The analyisis is as follows:
+    Pace should be represented in a target time of minutes per kilometer. All distance values should be in
+    Kilometers. The analyisis is as follows:
     {runningAnalysis}
     """
 
