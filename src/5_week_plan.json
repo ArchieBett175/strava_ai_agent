@@ -1,0 +1,344 @@
+{
+  "weeks": [
+    {
+      "week_number": 1,
+      "workouts": [
+        {
+          "day": "Monday",
+          "date": "2025-08-18",
+          "type": "Easy Run",
+          "description": "Gentle run to build aerobic base. Focus on comfortable, conversational pace.",
+          "distance_km": 5,
+          "target_pace_min_km": null,
+          "duration_minutes": 35
+        },
+        {
+          "day": "Tuesday",
+          "date": "2025-08-19",
+          "type": "Rest",
+          "description": "Complete rest or light stretching/mobility work.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Wednesday",
+          "date": "2025-08-20",
+          "type": "Interval Training",
+          "description": "Warm-up 1.5km, then 6x400m fast (approx. 5k race pace effort) with 200m easy jog recovery. Cool-down 1km. Focus on maintaining good form.",
+          "distance_km": 5.5,
+          "target_pace_min_km": "Effort based (5k pace)",
+          "duration_minutes": 45
+        },
+        {
+          "day": "Thursday",
+          "date": "2025-08-21",
+          "type": "Rest",
+          "description": "Complete rest or light active recovery (e.g., walking, stretching).",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Friday",
+          "date": "2025-08-22",
+          "type": "Easy Run",
+          "description": "Relaxed run to loosen up and accumulate mileage.",
+          "distance_km": 4,
+          "target_pace_min_km": null,
+          "duration_minutes": 30
+        },
+        {
+          "day": "Saturday",
+          "date": "2025-08-23",
+          "type": "Long Run",
+          "description": "Steady, easy-paced run to build endurance. Focus on consistent effort.",
+          "distance_km": 8,
+          "target_pace_min_km": null,
+          "duration_minutes": 60
+        },
+        {
+          "day": "Sunday",
+          "date": "2025-08-24",
+          "type": "Rest/Active Recovery",
+          "description": "Rest or gentle activity like yoga, cycling, or light walking.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        }
+      ]
+    },
+    {
+      "week_number": 2,
+      "workouts": [
+        {
+          "day": "Monday",
+          "date": "2025-08-25",
+          "type": "Easy Run",
+          "description": "Easy paced run, focus on feeling good and recovery from the weekend.",
+          "distance_km": 5,
+          "target_pace_min_km": null,
+          "duration_minutes": 35
+        },
+        {
+          "day": "Tuesday",
+          "date": "2025-08-26",
+          "type": "Rest",
+          "description": "Complete rest.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Wednesday",
+          "date": "2025-08-27",
+          "type": "Tempo Run",
+          "description": "Warm-up 1.5km, then 20 minutes at comfortably hard pace (can speak in short sentences). Cool-down 1.5km. Focus on sustained effort.",
+          "distance_km": 7,
+          "target_pace_min_km": "Effort based (Tempo)",
+          "duration_minutes": 50
+        },
+        {
+          "day": "Thursday",
+          "date": "2025-08-28",
+          "type": "Rest",
+          "description": "Rest or active recovery.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Friday",
+          "date": "2025-08-29",
+          "type": "Easy Run",
+          "description": "Light, easy run for recovery and mileage.",
+          "distance_km": 4.5,
+          "target_pace_min_km": null,
+          "duration_minutes": 30
+        },
+        {
+          "day": "Saturday",
+          "date": "2025-08-30",
+          "type": "Long Run",
+          "description": "Steady, easy pace to increase endurance. Focus on hydration and fueling.",
+          "distance_km": 10,
+          "target_pace_min_km": null,
+          "duration_minutes": 75
+        },
+        {
+          "day": "Sunday",
+          "date": "2025-08-31",
+          "type": "Rest/Active Recovery",
+          "description": "Rest or light activity such as a long walk or stretching session.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        }
+      ]
+    },
+    {
+      "week_number": 3,
+      "workouts": [
+        {
+          "day": "Monday",
+          "date": "2025-09-01",
+          "type": "Easy Run",
+          "description": "Comfortable run to start the week, easing into the higher intensity ahead.",
+          "distance_km": 5,
+          "target_pace_min_km": null,
+          "duration_minutes": 35
+        },
+        {
+          "day": "Tuesday",
+          "date": "2025-09-02",
+          "type": "Rest",
+          "description": "Complete rest.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Wednesday",
+          "date": "2025-09-03",
+          "type": "Interval Training",
+          "description": "Warm-up 1.5km, then 5x600m fast (approx. 5k race pace effort) with 400m easy jog recovery. Cool-down 1km. Focus on consistent pacing for each interval.",
+          "distance_km": 7,
+          "target_pace_min_km": "Effort based (5k pace)",
+          "duration_minutes": 55
+        },
+        {
+          "day": "Thursday",
+          "date": "2025-09-04",
+          "type": "Rest",
+          "description": "Rest or light active recovery.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Friday",
+          "date": "2025-09-05",
+          "type": "Easy Run",
+          "description": "Relaxed run, shake out the legs and prepare for the long run.",
+          "distance_km": 4.5,
+          "target_pace_min_km": null,
+          "duration_minutes": 30
+        },
+        {
+          "day": "Saturday",
+          "date": "2025-09-06",
+          "type": "Long Run",
+          "description": "Steady, easy pace, increasing endurance further. Practice nutrition and hydration.",
+          "distance_km": 12,
+          "target_pace_min_km": null,
+          "duration_minutes": 90
+        },
+        {
+          "day": "Sunday",
+          "date": "2025-09-07",
+          "type": "Rest/Active Recovery",
+          "description": "Rest or gentle activity like swimming or light cycling.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        }
+      ]
+    },
+    {
+      "week_number": 4,
+      "workouts": [
+        {
+          "day": "Monday",
+          "date": "2025-09-08",
+          "type": "Easy Run",
+          "description": "Comfortable, aerobic run to start the peak week.",
+          "distance_km": 6,
+          "target_pace_min_km": null,
+          "duration_minutes": 40
+        },
+        {
+          "day": "Tuesday",
+          "date": "2025-09-09",
+          "type": "Rest",
+          "description": "Complete rest.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Wednesday",
+          "date": "2025-09-10",
+          "type": "Tempo Run",
+          "description": "Warm-up 1.5km, then 25 minutes at comfortably hard pace. Cool-down 1.5km. Aim for a slightly faster pace than Week 2's tempo.",
+          "distance_km": 8,
+          "target_pace_min_km": "Effort based (Tempo)",
+          "duration_minutes": 60
+        },
+        {
+          "day": "Thursday",
+          "date": "2025-09-11",
+          "type": "Rest",
+          "description": "Rest or active recovery.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Friday",
+          "date": "2025-09-12",
+          "type": "Easy Run",
+          "description": "Short, easy run to keep legs loose before the peak long run.",
+          "distance_km": 4,
+          "target_pace_min_km": null,
+          "duration_minutes": 25
+        },
+        {
+          "day": "Saturday",
+          "date": "2025-09-13",
+          "type": "Long Run",
+          "description": "Peak long run for endurance. Maintain an easy, conversational pace throughout. Focus on mental strength.",
+          "distance_km": 14,
+          "target_pace_min_km": null,
+          "duration_minutes": 105
+        },
+        {
+          "day": "Sunday",
+          "date": "2025-09-14",
+          "type": "Rest/Active Recovery",
+          "description": "Rest or gentle activity.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        }
+      ]
+    },
+    {
+      "week_number": 5,
+      "workouts": [
+        {
+          "day": "Monday",
+          "date": "2025-09-15",
+          "type": "Easy Run",
+          "description": "Short, very easy run for active recovery as you begin to taper.",
+          "distance_km": 3,
+          "target_pace_min_km": null,
+          "duration_minutes": 20
+        },
+        {
+          "day": "Tuesday",
+          "date": "2025-09-16",
+          "type": "Rest",
+          "description": "Complete rest.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Wednesday",
+          "date": "2025-09-17",
+          "type": "Strides/Short Intervals",
+          "description": "Warm-up 1km, then 6x100m strides (fast but controlled, not a sprint) with walk back recovery. Cool-down 1km. Focus on quick leg turnover and feeling snappy.",
+          "distance_km": 3.5,
+          "target_pace_min_km": "Effort based (fast turnover)",
+          "duration_minutes": 30
+        },
+        {
+          "day": "Thursday",
+          "date": "2025-09-18",
+          "type": "Rest",
+          "description": "Rest or light active recovery. Prioritize sleep.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Friday",
+          "date": "2025-09-19",
+          "type": "Easy Run",
+          "description": "Very short and easy run to stay loose and reduce any pre-race jitters.",
+          "distance_km": 2,
+          "target_pace_min_km": null,
+          "duration_minutes": 15
+        },
+        {
+          "day": "Saturday",
+          "date": "2025-09-20",
+          "type": "Rest/Light Activity",
+          "description": "Complete rest or very light walking. Prepare mentally for your next goal.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        },
+        {
+          "day": "Sunday",
+          "date": "2025-09-21",
+          "type": "Rest",
+          "description": "Complete rest. You've completed the 5-week plan!",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,732 @@
+[
+  {
+    "id": 15412205901,
+    "name": "Yeh felt bloody good",
+    "description": "Tempo 2x16mins at quicker than sub 2 hour marathon pace - 5 mins break between. Ended with 800m at 4:30 pace for some fun \n\nReally good, well up for it",
+    "averageSpeed": "6:00/km",
+    "date": "10-08-2025",
+    "distanceTotal": "9.37 KM",
+    "movingTime": "0:56:10",
+    "avgHr": 169.1,
+    "maxHr": 188.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1000.2,
+        "avgSpeed": "6:18/km",
+        "time": "0:06:18",
+        "elevationDiff": 11.9,
+        "avgHr": 147
+      },
+      {
+        "id": 2,
+        "distance": 1019.0,
+        "avgSpeed": "5:35/km",
+        "time": "0:05:41",
+        "elevationDiff": -12.3,
+        "avgHr": 166
+      },
+      {
+        "id": 3,
+        "distance": 983.9,
+        "avgSpeed": "5:25/km",
+        "time": "0:05:19",
+        "elevationDiff": -5.6,
+        "avgHr": 173
+      },
+      {
+        "id": 4,
+        "distance": 998.1,
+        "avgSpeed": "5:48/km",
+        "time": "0:05:46",
+        "elevationDiff": 27.8,
+        "avgHr": 181
+      },
+      {
+        "id": 5,
+        "distance": 1016.0,
+        "avgSpeed": "6:21/km",
+        "time": "0:06:26",
+        "elevationDiff": -25.5,
+        "avgHr": 155
+      },
+      {
+        "id": 6,
+        "distance": 993.6,
+        "avgSpeed": "5:33/km",
+        "time": "0:05:30",
+        "elevationDiff": 1.4,
+        "avgHr": 177
+      },
+      {
+        "id": 7,
+        "distance": 991.4,
+        "avgSpeed": "5:26/km",
+        "time": "0:05:23",
+        "elevationDiff": 5.8,
+        "avgHr": 183
+      },
+      {
+        "id": 8,
+        "distance": 1001.3,
+        "avgSpeed": "7:08/km",
+        "time": "0:07:07",
+        "elevationDiff": -1.0,
+        "avgHr": 164
+      },
+      {
+        "id": 9,
+        "distance": 1012.6,
+        "avgSpeed": "6:11/km",
+        "time": "0:06:15",
+        "elevationDiff": -4.5,
+        "avgHr": 177
+      },
+      {
+        "id": 10,
+        "distance": 358.1,
+        "avgSpeed": "6:45/km",
+        "time": "0:02:25",
+        "elevationDiff": 0.2,
+        "avgHr": 177
+      }
+    ]
+  },
+  {
+    "id": 15390713778,
+    "name": "Felt great",
+    "description": "Was gonna be easy few days rest after big push at weekend but pushed a little bit to sit on zone 3. Few strides at the end to impress the neighbours.",
+    "averageSpeed": "6:11/km",
+    "date": "08-08-2025",
+    "distanceTotal": "5.14 KM",
+    "movingTime": "0:31:48",
+    "avgHr": 150.1,
+    "maxHr": 182.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1000.9,
+        "avgSpeed": "6:12/km",
+        "time": "0:06:12",
+        "elevationDiff": 11.9,
+        "avgHr": 133
+      },
+      {
+        "id": 2,
+        "distance": 1002.7,
+        "avgSpeed": "6:28/km",
+        "time": "0:06:29",
+        "elevationDiff": -12.0,
+        "avgHr": 146
+      },
+      {
+        "id": 3,
+        "distance": 997.8,
+        "avgSpeed": "6:12/km",
+        "time": "0:06:11",
+        "elevationDiff": -2.1,
+        "avgHr": 151
+      },
+      {
+        "id": 4,
+        "distance": 999.5,
+        "avgSpeed": "6:18/km",
+        "time": "0:06:17",
+        "elevationDiff": 0.7,
+        "avgHr": 158
+      },
+      {
+        "id": 5,
+        "distance": 999.5,
+        "avgSpeed": "6:03/km",
+        "time": "0:06:02",
+        "elevationDiff": -2.1,
+        "avgHr": 160
+      },
+      {
+        "id": 6,
+        "distance": 144.4,
+        "avgSpeed": "4:31/km",
+        "time": "0:00:39",
+        "elevationDiff": 3.3,
+        "avgHr": 176
+      }
+    ]
+  },
+  {
+    "id": 15327326770,
+    "name": "10k",
+    "description": "Zone 5 easy run lol. Official chip time 53:02 decent",
+    "averageSpeed": "5:17/km",
+    "date": "03-08-2025",
+    "distanceTotal": "10.07 KM",
+    "movingTime": "0:53:04",
+    "avgHr": 178.6,
+    "maxHr": 192.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1001.5,
+        "avgSpeed": "5:05/km",
+        "time": "0:05:05",
+        "elevationDiff": -2.7,
+        "avgHr": 158
+      },
+      {
+        "id": 2,
+        "distance": 1000.5,
+        "avgSpeed": "5:09/km",
+        "time": "0:05:09",
+        "elevationDiff": -0.9,
+        "avgHr": 171
+      },
+      {
+        "id": 3,
+        "distance": 999.6,
+        "avgSpeed": "5:11/km",
+        "time": "0:05:10",
+        "elevationDiff": -0.3,
+        "avgHr": 177
+      },
+      {
+        "id": 4,
+        "distance": 1000.7,
+        "avgSpeed": "5:20/km",
+        "time": "0:05:20",
+        "elevationDiff": -0.7,
+        "avgHr": 179
+      },
+      {
+        "id": 5,
+        "distance": 1000.3,
+        "avgSpeed": "5:16/km",
+        "time": "0:05:16",
+        "elevationDiff": -0.6,
+        "avgHr": 181
+      },
+      {
+        "id": 6,
+        "distance": 999.0,
+        "avgSpeed": "5:28/km",
+        "time": "0:05:28",
+        "elevationDiff": 0.8,
+        "avgHr": 180
+      },
+      {
+        "id": 7,
+        "distance": 1000.7,
+        "avgSpeed": "5:21/km",
+        "time": "0:05:21",
+        "elevationDiff": -1.1,
+        "avgHr": 183
+      },
+      {
+        "id": 8,
+        "distance": 998.2,
+        "avgSpeed": "5:28/km",
+        "time": "0:05:27",
+        "elevationDiff": -3.6,
+        "avgHr": 184
+      },
+      {
+        "id": 9,
+        "distance": 999.8,
+        "avgSpeed": "5:23/km",
+        "time": "0:05:23",
+        "elevationDiff": 4.4,
+        "avgHr": 184
+      },
+      {
+        "id": 10,
+        "distance": 1000.9,
+        "avgSpeed": "5:05/km",
+        "time": "0:05:05",
+        "elevationDiff": 2.1,
+        "avgHr": 187
+      },
+      {
+        "id": 11,
+        "distance": 70.5,
+        "avgSpeed": "4:44/km",
+        "time": "0:00:20",
+        "elevationDiff": -0.5,
+        "avgHr": 191
+      }
+    ]
+  },
+  {
+    "id": 15318232961,
+    "name": "Shakeout before race",
+    "description": "3.5k good convo with gingey",
+    "averageSpeed": "6:33/km",
+    "date": "02-08-2025",
+    "distanceTotal": "3.51 KM",
+    "movingTime": "0:22:59",
+    "avgHr": 145.8,
+    "maxHr": 157.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1000.2,
+        "avgSpeed": "6:34/km",
+        "time": "0:06:34",
+        "elevationDiff": -5.1,
+        "avgHr": 138
+      },
+      {
+        "id": 2,
+        "distance": 1001.4,
+        "avgSpeed": "6:34/km",
+        "time": "0:06:34",
+        "elevationDiff": -12.0,
+        "avgHr": 145
+      },
+      {
+        "id": 3,
+        "distance": 999.2,
+        "avgSpeed": "6:37/km",
+        "time": "0:06:36",
+        "elevationDiff": 2.5,
+        "avgHr": 152
+      },
+      {
+        "id": 4,
+        "distance": 511.5,
+        "avgSpeed": "6:24/km",
+        "time": "0:03:16",
+        "elevationDiff": -0.9,
+        "avgHr": 150
+      }
+    ]
+  },
+  {
+    "id": 15284140696,
+    "name": "Interval",
+    "description": "Last big session before 10k on Sunday. Really good fun accidently cut one of my rests short so just stood there for 30secs to make up for it.\n\n800 @5:10/km 800 a min slower times that by 4 and you\u2019ve got yourself a wonderful time.",
+    "averageSpeed": "5:38/km",
+    "date": "30-07-2025",
+    "distanceTotal": "7.99 KM",
+    "movingTime": "0:44:59",
+    "avgHr": 172.8,
+    "maxHr": 187.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1000.5,
+        "avgSpeed": "5:58/km",
+        "time": "0:05:57",
+        "elevationDiff": 14.6,
+        "avgHr": 149
+      },
+      {
+        "id": 2,
+        "distance": 1004.3,
+        "avgSpeed": "5:13/km",
+        "time": "0:05:14",
+        "elevationDiff": -13.2,
+        "avgHr": 171
+      },
+      {
+        "id": 3,
+        "distance": 1015.0,
+        "avgSpeed": "5:47/km",
+        "time": "0:05:51",
+        "elevationDiff": -0.7,
+        "avgHr": 171
+      },
+      {
+        "id": 4,
+        "distance": 980.9,
+        "avgSpeed": "5:31/km",
+        "time": "0:05:24",
+        "elevationDiff": 15.3,
+        "avgHr": 176
+      },
+      {
+        "id": 5,
+        "distance": 999.3,
+        "avgSpeed": "5:17/km",
+        "time": "0:05:16",
+        "elevationDiff": -13.0,
+        "avgHr": 179
+      },
+      {
+        "id": 6,
+        "distance": 1013.8,
+        "avgSpeed": "5:28/km",
+        "time": "0:05:32",
+        "elevationDiff": -4.9,
+        "avgHr": 180
+      },
+      {
+        "id": 7,
+        "distance": 992.2,
+        "avgSpeed": "5:45/km",
+        "time": "0:05:42",
+        "elevationDiff": -1.1,
+        "avgHr": 180
+      },
+      {
+        "id": 8,
+        "distance": 988.5,
+        "avgSpeed": "6:08/km",
+        "time": "0:06:03",
+        "elevationDiff": -4.6,
+        "avgHr": 178
+      }
+    ]
+  },
+  {
+    "id": 15250791231,
+    "name": "Long and easy",
+    "description": "Hr went out the window by the end but felt really strong and managed to keep pace decent",
+    "averageSpeed": "6:19/km",
+    "date": "27-07-2025",
+    "distanceTotal": "10.22 KM",
+    "movingTime": "1:04:28",
+    "avgHr": 154.2,
+    "maxHr": 177.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1002.5,
+        "avgSpeed": "6:25/km",
+        "time": "0:06:26",
+        "elevationDiff": 13.1,
+        "avgHr": 139
+      },
+      {
+        "id": 2,
+        "distance": 998.0,
+        "avgSpeed": "6:16/km",
+        "time": "0:06:15",
+        "elevationDiff": -29.7,
+        "avgHr": 143
+      },
+      {
+        "id": 3,
+        "distance": 1000.1,
+        "avgSpeed": "6:34/km",
+        "time": "0:06:33",
+        "elevationDiff": 4.9,
+        "avgHr": 150
+      },
+      {
+        "id": 4,
+        "distance": 1001.6,
+        "avgSpeed": "6:19/km",
+        "time": "0:06:19",
+        "elevationDiff": -10.4,
+        "avgHr": 151
+      },
+      {
+        "id": 5,
+        "distance": 998.3,
+        "avgSpeed": "6:33/km",
+        "time": "0:06:31",
+        "elevationDiff": 17.8,
+        "avgHr": 158
+      },
+      {
+        "id": 6,
+        "distance": 1000.2,
+        "avgSpeed": "6:33/km",
+        "time": "0:06:32",
+        "elevationDiff": 5.8,
+        "avgHr": 152
+      },
+      {
+        "id": 7,
+        "distance": 999.5,
+        "avgSpeed": "6:19/km",
+        "time": "0:06:18",
+        "elevationDiff": -3.8,
+        "avgHr": 158
+      },
+      {
+        "id": 8,
+        "distance": 1000.8,
+        "avgSpeed": "6:21/km",
+        "time": "0:06:21",
+        "elevationDiff": -1.1,
+        "avgHr": 162
+      },
+      {
+        "id": 9,
+        "distance": 999.7,
+        "avgSpeed": "6:12/km",
+        "time": "0:06:12",
+        "elevationDiff": 17.8,
+        "avgHr": 161
+      },
+      {
+        "id": 10,
+        "distance": 1002.2,
+        "avgSpeed": "6:00/km",
+        "time": "0:06:00",
+        "elevationDiff": -8.0,
+        "avgHr": 168
+      },
+      {
+        "id": 11,
+        "distance": 219.7,
+        "avgSpeed": "4:47/km",
+        "time": "0:01:03",
+        "elevationDiff": -5.4,
+        "avgHr": 170
+      }
+    ]
+  },
+  {
+    "id": 15239533122,
+    "name": "Easy",
+    "description": "Nice",
+    "averageSpeed": "6:42/km",
+    "date": "26-07-2025",
+    "distanceTotal": "5.63 KM",
+    "movingTime": "0:37:43",
+    "avgHr": 143.1,
+    "maxHr": 175.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1002.4,
+        "avgSpeed": "6:37/km",
+        "time": "0:06:38",
+        "elevationDiff": -9.2,
+        "avgHr": 127
+      },
+      {
+        "id": 2,
+        "distance": 998.2,
+        "avgSpeed": "6:55/km",
+        "time": "0:06:54",
+        "elevationDiff": -4.4,
+        "avgHr": 140
+      },
+      {
+        "id": 3,
+        "distance": 1001.5,
+        "avgSpeed": "6:45/km",
+        "time": "0:06:45",
+        "elevationDiff": 3.4,
+        "avgHr": 145
+      },
+      {
+        "id": 4,
+        "distance": 998.5,
+        "avgSpeed": "6:50/km",
+        "time": "0:06:50",
+        "elevationDiff": 6.9,
+        "avgHr": 143
+      },
+      {
+        "id": 5,
+        "distance": 999.9,
+        "avgSpeed": "6:21/km",
+        "time": "0:06:20",
+        "elevationDiff": 27.0,
+        "avgHr": 157
+      },
+      {
+        "id": 6,
+        "distance": 633.0,
+        "avgSpeed": "6:49/km",
+        "time": "0:04:18",
+        "elevationDiff": -22.2,
+        "avgHr": 150
+      }
+    ]
+  },
+  {
+    "id": 15206811244,
+    "name": "Easy",
+    "description": "Felt good on the flats but got sharp pain in right calf making hills unbearable",
+    "averageSpeed": "6:28/km",
+    "date": "23-07-2025",
+    "distanceTotal": "6.61 KM",
+    "movingTime": "0:42:43",
+    "avgHr": 149.2,
+    "maxHr": 164.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1001.3,
+        "avgSpeed": "6:27/km",
+        "time": "0:06:27",
+        "elevationDiff": 13.3,
+        "avgHr": 139
+      },
+      {
+        "id": 2,
+        "distance": 1001.1,
+        "avgSpeed": "6:12/km",
+        "time": "0:06:12",
+        "elevationDiff": -12.4,
+        "avgHr": 150
+      },
+      {
+        "id": 3,
+        "distance": 998.5,
+        "avgSpeed": "6:21/km",
+        "time": "0:06:20",
+        "elevationDiff": 2.6,
+        "avgHr": 149
+      },
+      {
+        "id": 4,
+        "distance": 1000.0,
+        "avgSpeed": "6:36/km",
+        "time": "0:06:35",
+        "elevationDiff": 19.8,
+        "avgHr": 148
+      },
+      {
+        "id": 5,
+        "distance": 999.9,
+        "avgSpeed": "6:28/km",
+        "time": "0:06:28",
+        "elevationDiff": -28.8,
+        "avgHr": 150
+      },
+      {
+        "id": 6,
+        "distance": 999.2,
+        "avgSpeed": "6:47/km",
+        "time": "0:06:47",
+        "elevationDiff": 8.5,
+        "avgHr": 154
+      },
+      {
+        "id": 7,
+        "distance": 607.8,
+        "avgSpeed": "6:28/km",
+        "time": "0:03:56",
+        "elevationDiff": -4.8,
+        "avgHr": 156
+      }
+    ]
+  },
+  {
+    "id": 15195268314,
+    "name": "Youcha",
+    "description": "5mins at RPE8 2 mins slow recovery  x3.  1k warm up to get it to 5k",
+    "averageSpeed": "5:37/km",
+    "date": "22-07-2025",
+    "distanceTotal": "5.1 KM",
+    "movingTime": "0:28:36",
+    "avgHr": 163.6,
+    "maxHr": 184.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1004.1,
+        "avgSpeed": "5:29/km",
+        "time": "0:05:30",
+        "elevationDiff": 14.0,
+        "avgHr": 148
+      },
+      {
+        "id": 2,
+        "distance": 1008.6,
+        "avgSpeed": "5:21/km",
+        "time": "0:05:23",
+        "elevationDiff": -13.6,
+        "avgHr": 159
+      },
+      {
+        "id": 3,
+        "distance": 996.2,
+        "avgSpeed": "5:32/km",
+        "time": "0:05:30",
+        "elevationDiff": -6.2,
+        "avgHr": 171
+      },
+      {
+        "id": 4,
+        "distance": 997.4,
+        "avgSpeed": "5:11/km",
+        "time": "0:05:10",
+        "elevationDiff": 9.2,
+        "avgHr": 174
+      },
+      {
+        "id": 5,
+        "distance": 997.7,
+        "avgSpeed": "6:28/km",
+        "time": "0:06:27",
+        "elevationDiff": -7.1,
+        "avgHr": 166
+      },
+      {
+        "id": 6,
+        "distance": 97.9,
+        "avgSpeed": "6:18/km",
+        "time": "0:00:37",
+        "elevationDiff": 3.1,
+        "avgHr": 169
+      }
+    ]
+  },
+  {
+    "id": 15156041706,
+    "name": "Tempo",
+    "description": "20 mins at 5:30/km ish somehow got a random 10k in a week and a half, after an 8 hour shift not bad. Padel in few hours",
+    "averageSpeed": "5:53/km",
+    "date": "18-07-2025",
+    "distanceTotal": "5.66 KM",
+    "movingTime": "0:33:16",
+    "avgHr": 168.0,
+    "maxHr": 184.0,
+    "splits": [
+      {
+        "id": 1,
+        "distance": 1001.6,
+        "avgSpeed": "6:44/km",
+        "time": "0:06:44",
+        "elevationDiff": 0.1,
+        "avgHr": 143
+      },
+      {
+        "id": 2,
+        "distance": 1000.1,
+        "avgSpeed": "5:28/km",
+        "time": "0:05:28",
+        "elevationDiff": 11.2,
+        "avgHr": 168
+      },
+      {
+        "id": 3,
+        "distance": 1000.6,
+        "avgSpeed": "5:16/km",
+        "time": "0:05:16",
+        "elevationDiff": -15.3,
+        "avgHr": 175
+      },
+      {
+        "id": 4,
+        "distance": 999.1,
+        "avgSpeed": "5:33/km",
+        "time": "0:05:32",
+        "elevationDiff": -12.9,
+        "avgHr": 175
+      },
+      {
+        "id": 5,
+        "distance": 1009.4,
+        "avgSpeed": "6:02/km",
+        "time": "0:06:04",
+        "elevationDiff": 13.2,
+        "avgHr": 180
+      },
+      {
+        "id": 6,
+        "distance": 646.0,
+        "avgSpeed": "6:33/km",
+        "time": "0:04:13",
+        "elevationDiff": 3.6,
+        "avgHr": 173
+      }
+    ]
+  }
+]
