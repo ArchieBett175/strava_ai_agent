@@ -95,3 +95,8 @@ target/
 # exclude data from source control by default
 # /data/
 credentials.json
+token.json
+
+token.json
+src/token.json
+**/*token*.json
