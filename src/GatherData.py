@@ -100,12 +100,12 @@ def processActivityData(client, activity_id=None, max_retries=3):
             return Activity(**tempDict)
 
         except RateLimitExceeded as e:
-            print("Rate limit exceeded. Waiting 60 seconds...")
+            print(f"Rate limit exceeded. Waiting 60 seconds... : {e}")
             time.sleep(60)
             continue
 
         except AccessUnauthorized as e:
-            print(f"Access denied for activity {activity_id}. Skipping...")
+            print(f"Access denied for activity {activity_id}. Skipping... : {e}")
             return None
 
         except Fault as e:

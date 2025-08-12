@@ -42,6 +42,8 @@ def runningAnalysis(client, runningData):
         the data is as follows: {json.dumps(runningData)}
     """
 
+    print("Analysing...")
+
     response = client.models.generate_content(
         model="gemini-2.5-flash", contents=promptAnalysis
     )
@@ -82,7 +84,9 @@ def runningPlan(client, runningAnalysis):
     types such as: interval training, tempo runs, easy runs and long runs. While prioritising aduquete 
     rest and recovery. The plan should include all days of the week and start from the monday following: {now}.
     Pace should be represented in a target time of minutes per kilometer. All distance values should be in
-    Kilometers. The analyisis is as follows:
+    Kilometers and Please give a rough estimate in minutes on how long each activity will take, so that these
+    can be transfered to a calendar event. Every object you create must have all the credentials of the response
+    Schema for continuity. The analyisis is as follows:
     {runningAnalysis}
     """
 
@@ -110,6 +114,9 @@ def main():
     client = genai.Client()
     runningData = readRunningData()
     analysis = runningAnalysis(client, runningData)
+
+    print("I will now create a 5 week plan from this analysis for you to get quicker")
+    print("Generating ...")
     runningPlan(client, analysis)
 
 

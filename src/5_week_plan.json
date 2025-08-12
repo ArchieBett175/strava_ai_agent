@@ -6,65 +6,65 @@
         {
           "day": "Monday",
           "date": "2025-08-18",
-          "type": "Easy Run",
-          "description": "Gentle run to build aerobic base. Focus on comfortable, conversational pace.",
-          "distance_km": 5,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 35
+          "duration_minutes": null
         },
         {
           "day": "Tuesday",
           "date": "2025-08-19",
-          "type": "Rest",
-          "description": "Complete rest or light stretching/mobility work.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Interval Run",
+          "description": "Warm-up (10-15 min easy), then 6 x 800m repeats at 5K-10K race pace with equal recovery jogs (e.g., 800m easy jog). Focus on maintaining good form during the fast segments. Cool-down (5-10 min easy).",
+          "distance_km": 6.5,
+          "target_pace_min_km": "4:30-5:00",
+          "duration_minutes": 50
         },
         {
           "day": "Wednesday",
           "date": "2025-08-20",
-          "type": "Interval Training",
-          "description": "Warm-up 1.5km, then 6x400m fast (approx. 5k race pace effort) with 200m easy jog recovery. Cool-down 1km. Focus on maintaining good form.",
-          "distance_km": 5.5,
-          "target_pace_min_km": "Effort based (5k pace)",
-          "duration_minutes": 45
-        },
-        {
-          "day": "Thursday",
-          "date": "2025-08-21",
           "type": "Rest",
-          "description": "Complete rest or light active recovery (e.g., walking, stretching).",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
           "distance_km": null,
           "target_pace_min_km": null,
           "duration_minutes": null
         },
         {
+          "day": "Thursday",
+          "date": "2025-08-21",
+          "type": "Tempo Run",
+          "description": "Warm-up (10 min easy), then 20 minutes at a comfortably hard pace (you can speak short sentences, but not full conversations). This should be a sustained effort. Cool-down (5 min easy).",
+          "distance_km": 6.0,
+          "target_pace_min_km": "5:45-6:00",
+          "duration_minutes": 45
+        },
+        {
           "day": "Friday",
           "date": "2025-08-22",
-          "type": "Easy Run",
-          "description": "Relaxed run to loosen up and accumulate mileage.",
-          "distance_km": 4,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 30
+          "duration_minutes": null
         },
         {
           "day": "Saturday",
           "date": "2025-08-23",
           "type": "Long Run",
-          "description": "Steady, easy-paced run to build endurance. Focus on consistent effort.",
-          "distance_km": 8,
-          "target_pace_min_km": null,
-          "duration_minutes": 60
+          "description": "Steady, easy-to-moderate pace. Focus on maintaining a consistent, conversational effort to build endurance. Hydrate well before, during, and after. Prioritize keeping heart rate down, especially in the first half. If HR spikes, slow down or walk.",
+          "distance_km": 9.0,
+          "target_pace_min_km": "6:30-7:00",
+          "duration_minutes": 65
         },
         {
           "day": "Sunday",
           "date": "2025-08-24",
-          "type": "Rest/Active Recovery",
-          "description": "Rest or gentle activity like yoga, cycling, or light walking.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Easy Run",
+          "description": "Focus on maintaining a very low heart rate (Zone 1-2). It should feel effortlessly easy, conversational pace. This is crucial for recovery and aerobic base building. If your HR is high, slow down or walk. Prioritize HR over pace.",
+          "distance_km": 4.0,
+          "target_pace_min_km": "7:00-7:30",
+          "duration_minutes": 30
         }
       ]
     },
@@ -74,65 +74,65 @@
         {
           "day": "Monday",
           "date": "2025-08-25",
-          "type": "Easy Run",
-          "description": "Easy paced run, focus on feeling good and recovery from the weekend.",
-          "distance_km": 5,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 35
+          "duration_minutes": null
         },
         {
           "day": "Tuesday",
           "date": "2025-08-26",
-          "type": "Rest",
-          "description": "Complete rest.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Interval Run",
+          "description": "Warm-up (10-15 min easy), then 5 x 1000m repeats at 10K race pace with 2-3 min recovery jogs in between. Focus on maintaining good form during the fast segments. Cool-down (5-10 min easy).",
+          "distance_km": 7.5,
+          "target_pace_min_km": "4:45-5:15",
+          "duration_minutes": 55
         },
         {
           "day": "Wednesday",
           "date": "2025-08-27",
-          "type": "Tempo Run",
-          "description": "Warm-up 1.5km, then 20 minutes at comfortably hard pace (can speak in short sentences). Cool-down 1.5km. Focus on sustained effort.",
-          "distance_km": 7,
-          "target_pace_min_km": "Effort based (Tempo)",
-          "duration_minutes": 50
-        },
-        {
-          "day": "Thursday",
-          "date": "2025-08-28",
           "type": "Rest",
-          "description": "Rest or active recovery.",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
           "distance_km": null,
           "target_pace_min_km": null,
           "duration_minutes": null
         },
         {
+          "day": "Thursday",
+          "date": "2025-08-28",
+          "type": "Tempo Run",
+          "description": "Warm-up (10 min easy), then 25 minutes at a comfortably hard pace (you can speak short sentences, but not full conversations). This should be a sustained effort. Cool-down (5 min easy).",
+          "distance_km": 7.0,
+          "target_pace_min_km": "5:40-5:55",
+          "duration_minutes": 50
+        },
+        {
           "day": "Friday",
           "date": "2025-08-29",
-          "type": "Easy Run",
-          "description": "Light, easy run for recovery and mileage.",
-          "distance_km": 4.5,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 30
+          "duration_minutes": null
         },
         {
           "day": "Saturday",
           "date": "2025-08-30",
           "type": "Long Run",
-          "description": "Steady, easy pace to increase endurance. Focus on hydration and fueling.",
-          "distance_km": 10,
-          "target_pace_min_km": null,
+          "description": "Steady, easy-to-moderate pace. Focus on maintaining a consistent, conversational effort to build endurance. Hydrate well before, during, and after. Prioritize keeping heart rate down, especially in the first half. If HR spikes, slow down or walk.",
+          "distance_km": 11.0,
+          "target_pace_min_km": "6:20-6:50",
           "duration_minutes": 75
         },
         {
           "day": "Sunday",
           "date": "2025-08-31",
-          "type": "Rest/Active Recovery",
-          "description": "Rest or light activity such as a long walk or stretching session.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Easy Run",
+          "description": "Focus on maintaining a very low heart rate (Zone 1-2). It should feel effortlessly easy, conversational pace. This is crucial for recovery and aerobic base building. If your HR is high, slow down or walk. Prioritize HR over pace.",
+          "distance_km": 5.0,
+          "target_pace_min_km": "6:50-7:20",
+          "duration_minutes": 35
         }
       ]
     },
@@ -142,65 +142,65 @@
         {
           "day": "Monday",
           "date": "2025-09-01",
-          "type": "Easy Run",
-          "description": "Comfortable run to start the week, easing into the higher intensity ahead.",
-          "distance_km": 5,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 35
+          "duration_minutes": null
         },
         {
           "day": "Tuesday",
           "date": "2025-09-02",
-          "type": "Rest",
-          "description": "Complete rest.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Interval Run",
+          "description": "Warm-up (10-15 min easy), then 4 x 1200m repeats at slightly slower than 10K race pace with 3-4 min recovery jogs. Focus on maintaining good form during the fast segments. Cool-down (5-10 min easy).",
+          "distance_km": 8.0,
+          "target_pace_min_km": "4:50-5:20",
+          "duration_minutes": 60
         },
         {
           "day": "Wednesday",
           "date": "2025-09-03",
-          "type": "Interval Training",
-          "description": "Warm-up 1.5km, then 5x600m fast (approx. 5k race pace effort) with 400m easy jog recovery. Cool-down 1km. Focus on consistent pacing for each interval.",
-          "distance_km": 7,
-          "target_pace_min_km": "Effort based (5k pace)",
-          "duration_minutes": 55
-        },
-        {
-          "day": "Thursday",
-          "date": "2025-09-04",
           "type": "Rest",
-          "description": "Rest or light active recovery.",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
           "distance_km": null,
           "target_pace_min_km": null,
           "duration_minutes": null
         },
         {
+          "day": "Thursday",
+          "date": "2025-09-04",
+          "type": "Tempo Run",
+          "description": "Warm-up (10 min easy), then 30 minutes at a comfortably hard pace (you can speak short sentences, but not full conversations). This should be a sustained effort. Cool-down (5 min easy).",
+          "distance_km": 8.0,
+          "target_pace_min_km": "5:35-5:50",
+          "duration_minutes": 60
+        },
+        {
           "day": "Friday",
           "date": "2025-09-05",
-          "type": "Easy Run",
-          "description": "Relaxed run, shake out the legs and prepare for the long run.",
-          "distance_km": 4.5,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 30
+          "duration_minutes": null
         },
         {
           "day": "Saturday",
           "date": "2025-09-06",
           "type": "Long Run",
-          "description": "Steady, easy pace, increasing endurance further. Practice nutrition and hydration.",
-          "distance_km": 12,
-          "target_pace_min_km": null,
-          "duration_minutes": 90
+          "description": "Steady, easy-to-moderate pace. Focus on maintaining a consistent, conversational effort to build endurance. Hydrate well before, during, and after. Prioritize keeping heart rate down, especially in the first half. If HR spikes, slow down or walk.",
+          "distance_km": 13.0,
+          "target_pace_min_km": "6:10-6:40",
+          "duration_minutes": 85
         },
         {
           "day": "Sunday",
           "date": "2025-09-07",
-          "type": "Rest/Active Recovery",
-          "description": "Rest or gentle activity like swimming or light cycling.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Easy Run",
+          "description": "Focus on maintaining a very low heart rate (Zone 1-2). It should feel effortlessly easy, conversational pace. This is crucial for recovery and aerobic base building. If your HR is high, slow down or walk. Prioritize HR over pace.",
+          "distance_km": 4.0,
+          "target_pace_min_km": "6:40-7:10",
+          "duration_minutes": 30
         }
       ]
     },
@@ -210,62 +210,62 @@
         {
           "day": "Monday",
           "date": "2025-09-08",
-          "type": "Easy Run",
-          "description": "Comfortable, aerobic run to start the peak week.",
-          "distance_km": 6,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition. This is a cutback week to absorb training.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 40
+          "duration_minutes": null
         },
         {
           "day": "Tuesday",
           "date": "2025-09-09",
-          "type": "Rest",
-          "description": "Complete rest.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Interval Run",
+          "description": "Warm-up (10 min easy), then 8 x 400m repeats at faster than 5K race pace with 200-400m recovery jogs. Focus on quick leg turnover and good form. Cool-down (5 min easy).",
+          "distance_km": 5.5,
+          "target_pace_min_km": "4:00-4:30",
+          "duration_minutes": 45
         },
         {
           "day": "Wednesday",
           "date": "2025-09-10",
-          "type": "Tempo Run",
-          "description": "Warm-up 1.5km, then 25 minutes at comfortably hard pace. Cool-down 1.5km. Aim for a slightly faster pace than Week 2's tempo.",
-          "distance_km": 8,
-          "target_pace_min_km": "Effort based (Tempo)",
-          "duration_minutes": 60
-        },
-        {
-          "day": "Thursday",
-          "date": "2025-09-11",
           "type": "Rest",
-          "description": "Rest or active recovery.",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition. This is a cutback week to absorb training.",
           "distance_km": null,
           "target_pace_min_km": null,
           "duration_minutes": null
         },
         {
+          "day": "Thursday",
+          "date": "2025-09-11",
+          "type": "Easy Run",
+          "description": "Focus on maintaining a very low heart rate (Zone 1-2). It should feel effortlessly easy, conversational pace. This is crucial for recovery and aerobic base building. If your HR is high, slow down or walk. Prioritize HR over pace.",
+          "distance_km": 5.0,
+          "target_pace_min_km": "6:45-7:15",
+          "duration_minutes": 35
+        },
+        {
           "day": "Friday",
           "date": "2025-09-12",
-          "type": "Easy Run",
-          "description": "Short, easy run to keep legs loose before the peak long run.",
-          "distance_km": 4,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition. This is a cutback week to absorb training.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 25
+          "duration_minutes": null
         },
         {
           "day": "Saturday",
           "date": "2025-09-13",
           "type": "Long Run",
-          "description": "Peak long run for endurance. Maintain an easy, conversational pace throughout. Focus on mental strength.",
-          "distance_km": 14,
-          "target_pace_min_km": null,
-          "duration_minutes": 105
+          "description": "Steady, easy-to-moderate pace. This is a medium-long run for the cutback week. Focus on maintaining a consistent, conversational effort. Hydrate well. Prioritize keeping heart rate down.",
+          "distance_km": 10.0,
+          "target_pace_min_km": "6:25-6:55",
+          "duration_minutes": 70
         },
         {
           "day": "Sunday",
           "date": "2025-09-14",
-          "type": "Rest/Active Recovery",
-          "description": "Rest or gentle activity.",
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Focus on hydration and nutrition. This is a cutback week to absorb training.",
           "distance_km": null,
           "target_pace_min_km": null,
           "duration_minutes": null
@@ -278,62 +278,62 @@
         {
           "day": "Monday",
           "date": "2025-09-15",
-          "type": "Easy Run",
-          "description": "Short, very easy run for active recovery as you begin to taper.",
-          "distance_km": 3,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Taper week for performance.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 20
+          "duration_minutes": null
         },
         {
           "day": "Tuesday",
           "date": "2025-09-16",
-          "type": "Rest",
-          "description": "Complete rest.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Interval Run",
+          "description": "Warm-up (10 min easy), then 4 x 200m striders at near max effort with long recovery walks (200m). Focus on speed and form, not endurance. Cool-down (5 min easy).",
+          "distance_km": 3.5,
+          "target_pace_min_km": "<4:00",
+          "duration_minutes": 30
         },
         {
           "day": "Wednesday",
           "date": "2025-09-17",
-          "type": "Strides/Short Intervals",
-          "description": "Warm-up 1km, then 6x100m strides (fast but controlled, not a sprint) with walk back recovery. Cool-down 1km. Focus on quick leg turnover and feeling snappy.",
-          "distance_km": 3.5,
-          "target_pace_min_km": "Effort based (fast turnover)",
-          "duration_minutes": 30
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Taper week for performance.",
+          "distance_km": null,
+          "target_pace_min_km": null,
+          "duration_minutes": null
         },
         {
           "day": "Thursday",
           "date": "2025-09-18",
-          "type": "Rest",
-          "description": "Rest or light active recovery. Prioritize sleep.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Easy Run",
+          "description": "A very light shakeout run. Focus on maintaining a very low heart rate (Zone 1-2). It should feel effortlessly easy, conversational pace. Include 4-6 x 100m strides at the end to keep legs fresh.",
+          "distance_km": 4.5,
+          "target_pace_min_km": "6:30-7:00",
+          "duration_minutes": 35
         },
         {
           "day": "Friday",
           "date": "2025-09-19",
-          "type": "Easy Run",
-          "description": "Very short and easy run to stay loose and reduce any pre-race jitters.",
-          "distance_km": 2,
+          "type": "Rest",
+          "description": "Complete rest day to allow for full recovery. Taper week for performance.",
+          "distance_km": null,
           "target_pace_min_km": null,
-          "duration_minutes": 15
+          "duration_minutes": null
         },
         {
           "day": "Saturday",
           "date": "2025-09-20",
-          "type": "Rest/Light Activity",
-          "description": "Complete rest or very light walking. Prepare mentally for your next goal.",
-          "distance_km": null,
-          "target_pace_min_km": null,
-          "duration_minutes": null
+          "type": "Performance Run",
+          "description": "Option 1 (Race): Run a local 5K Parkrun or similar race aiming for a new personal best. Option 2 (Tempo): Warm-up (10 min easy), then 20 minutes at a comfortably hard pace (Tempo effort). Cool-down (5 min easy). Choose based on how you feel and if a race is available.",
+          "distance_km": 5.0,
+          "target_pace_min_km": "5:20-5:40",
+          "duration_minutes": 40
         },
         {
           "day": "Sunday",
           "date": "2025-09-21",
           "type": "Rest",
-          "description": "Complete rest. You've completed the 5-week plan!",
+          "description": "Complete rest day to allow for full recovery after your performance run. Focus on hydration and nutrition.",
           "distance_km": null,
           "target_pace_min_km": null,
           "duration_minutes": null
