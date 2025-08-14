@@ -109,16 +109,9 @@ def runningPlan(client, runningAnalysis):
     with open(filePath, "w") as f:
         json.dump(trainingPlanDict, f, indent=2)
 
+    return json.dumps(trainingPlanDict, indent=2)
 
-def main():
+
+def getGenAiClient():
     client = genai.Client()
-    runningData = readRunningData()
-    analysis = runningAnalysis(client, runningData)
-
-    print("I will now create a 5 week plan from this analysis for you to get quicker")
-    print("Generating ...")
-    runningPlan(client, analysis)
-
-
-if __name__ == "__main__":
-    main()
+    return client

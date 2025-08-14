@@ -92,10 +92,11 @@ def createCalendarEvents(dataSet, creds, timeZone, startTime):
                         events_created += 1
 
             print(f"\nSuccessfully created {events_created} calendar events!")
+            return True
 
     except HttpError as error:
         print(f"An error occurred while creating calendar service: {error}")
-        return None
+        return False
 
 
 def insertCalEvent(service, event):
@@ -173,70 +174,3 @@ def validate_timezone(timezone_str):
     if timezone_str in common_timezones or "/" in timezone_str:
         return True
     return False
-
-
-def main():
-    """Main function with improved error handling and user input validation"""
-    print("=== Training Plan to Google Calendar Integration ===\n")
-
-    # Get credentials
-    creds = get_credentials()
-    if not creds:
-        print("Failed to authenticate. Exiting.")
-        return
-
-    # Load training plan
-    data = gettrainingPlan()
-    if "error" in data:
-        print(f"Error loading training plan: {data['error']}")
-        return
-
-    print("Training plan loaded successfully!")
-
-    while True:
-        createCal = (
-            input(
-                "\nWould you like to port this training plan over to Google Calendar? (y/n): "
-            )
-            .lower()
-            .strip()
-        )
-
-        if createCal == "y":
-            # Get and validate time input
-            while True:
-                time = input(
-                    "What time would you like to schedule your workouts? (Format: HH:MM:SS, e.g., 09:00:00): "
-                ).strip()
-
-                if validate_time_input(time):
-                    break
-                else:
-                    print("Invalid time format. Please use HH:MM:SS (e.g., 09:00:00)")
-
-            # Get and validate timezone input
-            while True:
-                timeZone = input(
-                    "What timezone are you in? (IANA format, e.g., Europe/London): "
-                ).strip()
-
-                if validate_timezone(timeZone):
-                    break
-                else:
-                    print(
-                        "Please enter a valid IANA timezone (e.g., Europe/London, America/New_York)"
-                    )
-
-            print(f"\nCreating calendar events for {time} in {timeZone}...")
-            createCalendarEvents(data, creds, timeZone, time)
-            break
-
-        elif createCal == "n":
-            print("No calendar events created. Goodbye!")
-            break
-        else:
-            print(f"Input '{createCal}' invalid, respond with either 'y' or 'n'.")
-
-
-if __name__ == "__main__":
-    main()
