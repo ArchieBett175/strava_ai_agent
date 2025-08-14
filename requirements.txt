@@ -1,2 +1,7 @@
 ipykernel
 python-dotenv
+pydantic
+stravalib
+google
+fastapi
+uvicorn

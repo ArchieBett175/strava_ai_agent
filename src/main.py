@@ -1,19 +1,113 @@
-from StravaApiAuth import getAuthenticatedUser, getAthleteinfo
-from GatherData import gatherLastRunsFromTen, processActivityData, dumpJsonFile
-from GeminiRunningDataAnalyzer import (
+# Standard library imports
+import sys
+import time
+from pathlib import Path
+from typing import List, Optional, Dict, Any
+
+# Third-party imports
+import uvicorn
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+
+# Add the src directory to Python path before local imports
+current_dir = Path(__file__).resolve().parent
+sys.path.insert(0, str(current_dir))
+
+# Local imports (after path setup)
+from StravaApiAuth import getAuthenticatedUser, getAthleteinfo  # noqa: E402
+from GatherData import gatherLastRunsFromTen, processActivityData, dumpJsonFile  # noqa: E402
+from GeminiRunningDataAnalyzer import (  # noqa: E402
     getGenAiClient,
     readRunningData,
     runningAnalysis,
     runningPlan,
 )
-from assignCalendarEvent import (
+from assignCalendarEvent import (  # noqa: E402
     get_credentials,
     gettrainingPlan,
     validate_time_input,
     validate_timezone,
     createCalendarEvents,
 )
-import time
+
+app = FastAPI()
+
+origins = ["https://localhost:3000"]
+
+
+class StravaUserDetails(BaseModel):
+    runnerId: int
+    runnerName: str
+    activities: List[Any]
+    failedActivites: List[Any]
+
+
+class RunnerActivitiesSuccess(BaseModel):
+    success: bool = True
+    data: StravaUserDetails
+
+
+class ErrorResponse(BaseModel):
+    success: bool = False
+    message: str
+    error_code: str
+    details: Optional[Dict[str, Any]] = None
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/runner", response_model=RunnerActivitiesSuccess)
+def get_runner_details():
+    try:
+        strava_data = getStravaData()
+        if not strava_data:
+            raise HTTPException(
+                status_code=503,
+                detail=ErrorResponse(
+                    message="Unable to connect to strava API",
+                    error_code="STRAVA_UNAVAILABLE",
+                ).model_dump(),
+            )
+
+        user = StravaUserDetails(
+            runnerId=strava_data["athlete_info"]["id"],
+            runnerName=(
+                strava_data["athlete_info"]["firstname"]
+                + " "
+                + strava_data["athlete_info"]["lastname"]
+            ),
+            activities=strava_data["user_data"],
+            failedActivites=strava_data["failed_activities"],
+        )
+
+        return RunnerActivitiesSuccess(data=user)
+
+    except HTTPException:
+        raise
+    except ValueError as e:
+        raise HTTPException(
+            status_code=400,
+            detail=ErrorResponse(
+                message="Invalid data received from Strava API",
+                error_code="VALIDATION_ERROR",
+                details={"validation_error": str(e)},
+            ).model_dump(),
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=ErrorResponse(
+                message="An Unexpected error occured", error_code="INTERNAL_ERROR"
+            ).model_dump(),
+        )
 
 
 class StravaDataManager:
@@ -250,6 +344,25 @@ class calendarEventManager:
         return self.userCreds
 
 
+def getStravaData():
+    stravaManager = StravaDataManager()
+    hasGatheredStravaData = stravaManager.gatherAndProcessAllData()
+
+    if hasGatheredStravaData:
+        userData = stravaManager.getActivityData()
+        athleteInfo = stravaManager.getAthleteInfo()
+        failedActivities = stravaManager.getFailedActivities()
+
+        userDict = {
+            "athlete_info": athleteInfo,
+            "user_data": userData,
+            "failed_activities": failedActivities,
+        }
+        return userDict
+    else:
+        return "Failed to retrieve strava user details"
+
+
 def main():
     stravaManager = StravaDataManager()
     hasGatheredStravaData = stravaManager.gatherAndProcessAllData()
@@ -335,4 +448,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    uvicorn.run(app, host="0.0.0.0", port=8000)
