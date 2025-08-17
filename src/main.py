@@ -1,14 +1,15 @@
 # Standard library imports
 import sys
 import time
+import json
 from pathlib import Path
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Union
 
 # Third-party imports
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, ValidationError
 
 # Add the src directory to Python path before local imports
 current_dir = Path(__file__).resolve().parent
@@ -33,7 +34,7 @@ from assignCalendarEvent import (  # noqa: E402
 
 app = FastAPI()
 
-origins = ["https://localhost:3000"]
+origins = ["http://localhost:5173"]
 
 
 class StravaUserDetails(BaseModel):
@@ -53,6 +54,58 @@ class ErrorResponse(BaseModel):
     message: str
     error_code: str
     details: Optional[Dict[str, Any]] = None
+
+
+class Workout(BaseModel):
+    day: str
+    date: str
+    type: str
+    description: str
+    distance_km: Optional[Union[float, int]] = None
+    target_pace_min_km: Optional[str] = None
+    duration_minutes: Optional[Union[int, float]] = None
+
+    class Config:
+        extra = "allow"
+
+
+class Week(BaseModel):
+    week_number: int
+    workouts: List[Workout]
+
+    class Config:
+        extra = "allow"
+
+
+class RunningPlan(BaseModel):
+    weeks: List[Week]
+
+    total_weeks: Optional[int] = None
+    plan_type: Optional[str] = None
+    fitness_level: Optional[str] = None
+
+    class Config:
+        extra = "allow"
+
+
+class AiSuccessResponse(BaseModel):
+    success: bool = True
+    analysis: str
+    planData: RunningPlan
+    message: str = "Analysis and Generation Success"
+
+
+class AiRawResponse(BaseModel):
+    success: bool = True
+    planData: Dict[str, Any]
+    analysis: str
+    message: str = "Plan and Analysis generation Success"
+    validationWarnings: Optional[List[str]] = None
+
+
+class Times(BaseModel):
+    startTime: str
+    timeZone: str
 
 
 app.add_middleware(
@@ -101,13 +154,71 @@ def get_runner_details():
                 details={"validation_error": str(e)},
             ).model_dump(),
         )
-    except Exception as e:
+    except Exception:
         raise HTTPException(
             status_code=500,
             detail=ErrorResponse(
-                message="An Unexpected error occured", error_code="INTERNAL_ERROR"
+                message="An Unexpected error occurred", error_code="INTERNAL_ERROR"
             ).model_dump(),
         )
+
+
+@app.get("/analysis-plan")
+def generate_runner_plan(validate: bool = True):
+    try:
+        geminiData = getGeminiResponse()
+        if not geminiData:
+            raise HTTPException(
+                status_code=503,
+                detail=ErrorResponse(
+                    message=geminiData["message"], error_code=geminiData["error_code"]
+                ),
+            )
+        analysisTxt = geminiData["analysis"]
+        planDict = json.loads(geminiData["plan"])
+
+        if not validate:
+            return AiRawResponse(analysis=analysisTxt, planData=planDict)
+
+        try:
+            plan = RunningPlan(**planDict)
+            return AiSuccessResponse(analysis=analysisTxt, planData=plan)
+        except ValidationError as e:
+            warnings = [f"Validation warning: {error['msg']}" for error in e.errors()]
+            print(f"Plan validation warnings: {warnings}")
+
+            return AiRawResponse(
+                analysis=analysisTxt,
+                planData=planDict,
+                message="Plan and analaysis generated with validation warnings",
+                validationWarnings=warnings,
+            )
+
+    except json.JSONDecodeError as e:
+        raise HTTPException(
+            status_code=500,
+            detail=ErrorResponse(
+                message="AI Model returned invaild JSON",
+                error_code="INVALID_JSON",
+                details={"JSON_ERROR": str(e)},
+            ).model_dump(),
+        )
+    except Exception:
+        raise HTTPException(
+            status_code=500,
+            detail=ErrorResponse(
+                message="An Unexpected error occurred", error_code="INTERNAL_ERROR"
+            ).model_dump(),
+        )
+
+
+@app.post("/times", response_model=Times)
+def valTimes(times: Times):
+    print(times)
+    inputCalTimeTimeZone(times.startTime, times.timeZone)
+    print("success")
+
+    return times
 
 
 class StravaDataManager:
@@ -230,8 +341,11 @@ class RunningPlanGeneratorManager:
         try:
             self.geminiClient = getGenAiClient()
             self.runningData = readRunningData()
-            self.isInitialised = True
-            return True
+            if self.runningData and self.geminiClient:
+                self.isInitialised = True
+                return True
+            else:
+                return False
         except Exception as e:
             print(f"Iitialisation failed: {e}")
             return False
@@ -361,6 +475,50 @@ def getStravaData():
         return userDict
     else:
         return "Failed to retrieve strava user details"
+
+
+def getGeminiResponse():
+    runningPlanGenerator = RunningPlanGeneratorManager()
+    if runningPlanGenerator.initialise():
+        if runningPlanGenerator.Analyse():
+            if runningPlanGenerator.generatePlan():
+                runAnalysis = runningPlanGenerator.get_analysis()
+                plan = runningPlanGenerator.get_plan()
+                aiDict = {
+                    "analysis": runAnalysis,
+                    "plan": plan,
+                    "message": "Analysis and plan Generation successful",
+                    "status": True,
+                }
+            else:
+                return {
+                    "message": "Plan Generation Failed",
+                    "status": False,
+                    "error_code": "PLAN_GENERATION_UNAVAILABLE",
+                }
+        else:
+            return {
+                "message": "Data analysis failed",
+                "status": False,
+                "error_code": "DATA_ANALYSIS_UNAVAILABLE",
+            }
+    else:
+        return {
+            "message": "Could not gather user running data",
+            "status": False,
+            "error_code": "USER_DATA_UNAVAILABLE",
+        }
+    return aiDict
+
+
+def inputCalTimeTimeZone(time, timeZone):
+    calEventManager = calendarEventManager()
+    timeValid = calEventManager.validatedStartTime(time)
+    timeZoneValid = calEventManager.validatedUserTimeZone(timeZone)
+
+    print(timeValid, timeZoneValid)
+
+    return timeValid and timeZoneValid
 
 
 def main():
