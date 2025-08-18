@@ -53,6 +53,26 @@ def getInitialToken():
     return token_response
 
 
+def get_code_for_tokens(auth_code):
+    try:
+        client = Client()
+
+        token_response = client.exchange_code_for_token(
+            client_id=CLIENT_ID, client_secret=CLIENT_SECRET, code=auth_code
+        )
+
+        json_path = "token_response.json"
+
+        with open(json_path, "w") as f:
+            json.dump(token_response, f)
+
+        print("Tokens saved successfully ")
+        return token_response
+    except Exception as e:
+        print(f"Error exchanging code for token: {e}")
+        raise e
+
+
 def loadTokens():
     # Loads tokens from the saved file
     try:
@@ -71,7 +91,6 @@ def getAuthenticatedUser():
     token_data = loadTokens()
     if not token_data:
         print("No Tokens found. Getting initial token...")
-        token_data = getInitialToken()
 
     client = Client()
     client.access_token = token_data["access_token"]

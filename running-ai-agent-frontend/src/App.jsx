@@ -1,12 +1,26 @@
+import { useState } from "react";
 import CalendarInfo from "./components/CalendarInfo";
 import Hero from "./components/Hero";
+import StravaDataContainer from "./components/StravaDataContainer";
+import StravaImportSection from "./components/StravaImportSection";
+import { ReactLenis } from "lenis/dist/lenis-react";
+import GeminiAnalysisSection from "./components/GeminiAnalysisSection";
 
 function App() {
+  const [stravaData, setStravaData] = useState(null);
+
   return (
-    <div className="h-fit">
-      <Hero />
-      {/* <div className="h-screen"></div> */}
-    </div>
+    <ReactLenis root options={{ lerp: 0.05 }}>
+      <div className="h-fit">
+        <Hero setStravaData={setStravaData} />
+        {stravaData !== null ? (
+          <StravaDataContainer workoutData={stravaData} />
+        ) : (
+          <div />
+        )}
+        <GeminiAnalysisSection />
+      </div>
+    </ReactLenis>
   );
 }
 
