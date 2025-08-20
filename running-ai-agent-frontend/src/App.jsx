@@ -5,9 +5,11 @@ import StravaDataContainer from "./components/StravaDataContainer";
 import StravaImportSection from "./components/StravaImportSection";
 import { ReactLenis } from "lenis/dist/lenis-react";
 import GeminiAnalysisSection from "./components/GeminiAnalysisSection";
+import GeminiPlanSection from "./components/GeminiPlanSection";
 
 function App() {
   const [stravaData, setStravaData] = useState(null);
+  const [gemAnalysed, setGemAnalysed] = useState(null);
 
   return (
     <ReactLenis root options={{ lerp: 0.05 }}>
@@ -18,7 +20,8 @@ function App() {
         ) : (
           <div />
         )}
-        <GeminiAnalysisSection />
+        <GeminiAnalysisSection setGemAnalysed={setGemAnalysed} />
+        <GeminiPlanSection gemAnalysed={false} />
       </div>
     </ReactLenis>
   );
