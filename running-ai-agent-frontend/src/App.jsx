@@ -21,7 +21,7 @@ function App() {
           <div />
         )}
         <GeminiAnalysisSection setGemAnalysed={setGemAnalysed} />
-        <GeminiPlanSection gemAnalysed={false} />
+        <GeminiPlanSection gemAnalysed={gemAnalysed} />
       </div>
     </ReactLenis>
   );

@@ -3,6 +3,7 @@ import sys
 import time
 import json
 import asyncio
+import os
 import webbrowser
 from pathlib import Path
 from typing import List, Optional, Dict, Any, Union
@@ -13,6 +14,9 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, RedirectResponse
 from pydantic import BaseModel, ValidationError
+
+from google_auth_oauthlib.flow import Flow
+from google.oauth2.credentials import Credentials
 
 # Add the src directory to Python path before local imports
 current_dir = Path(__file__).resolve().parent
@@ -32,7 +36,7 @@ from GeminiRunningDataAnalyzer import (  # noqa: E402
     runningAnalysis,
     runningPlan,
 )
-from assignCalendarEvent import (  # noqa: E402
+from assignCalendarEvent import (  # noqa: E402 s
     get_credentials,
     gettrainingPlan,
     validate_time_input,
@@ -40,9 +44,18 @@ from assignCalendarEvent import (  # noqa: E402
     createCalendarEvents,
 )
 
+
+os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"  # REMOVE BEFORE PRODUCTION s
 app = FastAPI()
 
 origins = ["http://localhost:5173"]
+
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+GOOGLE_REDIRECT_URI = "http://localhost:8000/google-callback"
+SCOPES = ["https://www.googleapis.com/auth/calendar"]
+
+userTokens = {}  # Temporary for development purposes will be replaced with a database structure upon full deployment
 
 
 class StravaUserDetails(BaseModel):
@@ -301,6 +314,104 @@ def generate_runner_plan(validate: bool = True):
         )
 
 
+@app.get("/google-auth")
+async def google_auth(user_id: str):
+    if not user_id:
+        raise HTTPException(
+            status_code=400, detail="user_id query parameter is required"
+        )
+
+    flow = Flow.from_client_config(
+        {
+            "web": {
+                "client_id": GOOGLE_CLIENT_ID,
+                "client_secret": GOOGLE_CLIENT_SECRET,
+                "redirect_uris": [GOOGLE_REDIRECT_URI],
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://oauth2.googleapis.com/token",
+            }
+        },
+        scopes=SCOPES,
+    )
+
+    # Keep the original redirect URI - don't modify it
+    flow.redirect_uri = GOOGLE_REDIRECT_URI
+
+    # Pass user_id in the state parameter instead of the URL
+    auth_url, state = flow.authorization_url(
+        access_type="offline",
+        include_granted_scopes="true",
+        prompt="consent",
+        state=f"user_id:{user_id}",  # Embed user_id in state
+    )
+
+    # Store the state for validation (you can also store user_id here if needed)
+    userTokens[state] = {"user_id": user_id, "state": state}
+
+    return {"auth_url": auth_url}
+
+
+@app.get("/google-callback")
+async def google_callback(request: Request):
+    # Get the state parameter from the callback
+    state = request.query_params.get("state")
+    if not state:
+        raise HTTPException(
+            status_code=400, detail="State parameter missing from callback"
+        )
+
+    # Extract user_id from state
+    if not state.startswith("user_id:"):
+        raise HTTPException(status_code=400, detail="Invalid state parameter format")
+
+    user_id = state.split(":", 1)[1]
+
+    # Validate that we have this state stored
+    if state not in userTokens:
+        raise HTTPException(
+            status_code=400, detail="Invalid or expired state parameter"
+        )
+
+    flow = Flow.from_client_config(
+        {
+            "web": {
+                "client_id": GOOGLE_CLIENT_ID,
+                "client_secret": GOOGLE_CLIENT_SECRET,
+                "redirect_uris": [GOOGLE_REDIRECT_URI],
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://oauth2.googleapis.com/token",
+            }
+        },
+        scopes=SCOPES,
+        state=state,
+    )
+
+    # Use the original redirect URI
+    flow.redirect_uri = GOOGLE_REDIRECT_URI
+
+    # Fetch the token using the authorization response
+    flow.fetch_token(authorization_response=str(request.url))
+    creds = flow.credentials
+
+    # Store credentials under user_id
+    userTokens[user_id] = {
+        "token": creds.token,
+        "refresh_token": creds.refresh_token,
+        "token_uri": creds.token_uri,
+        "client_id": creds.client_id,
+        "client_secret": creds.client_secret,
+        "scopes": creds.scopes,
+    }
+
+    # Clean up the state entry
+    if state in userTokens:
+        del userTokens[state]
+
+    return RedirectResponse(
+        url=f"http://localhost:5173/?google=success&user_id={user_id}"
+    )
+
+
 @app.post("/times", response_model=Times)
 def valTimes(times: Times):
     print(times)
@@ -484,7 +595,8 @@ runningPlanGenerator = RunningPlanGeneratorManager()
 
 
 class calendarEventManager:
-    def __init__(self):
+    def __init__(self, user_id: str):
+        self.userId = user_id
         self.userCreds = None
         self.trainingPlan = None
         self.userTimeZone = None
@@ -494,7 +606,7 @@ class calendarEventManager:
 
     def loadUserCredentials(self):
         try:
-            self.userCreds = get_credentials()
+            self.userCreds = get_user_credentials(self.userId)
             self.credsLoaded = True
             return True
         except Exception as e:
@@ -513,11 +625,11 @@ class calendarEventManager:
 
     def createCalEvents(self):
         if not self.credsLoaded:
-            ("Please Authenticate user first")
+            print("Please Authenticate user first")
             return False
 
         if not self.dataLoaded:
-            ("Please Load data in first")
+            print("Please Load data in first")
             return False
 
         print(
@@ -545,7 +657,6 @@ class calendarEventManager:
             return False
 
     # getters
-
     def getUserCreds(self):
         return self.userCreds
 
@@ -626,6 +737,22 @@ def inputCalTimeTimeZone(time, timeZone):
     print(timeValid, timeZoneValid)
 
     return timeValid and timeZoneValid
+
+
+def get_user_credentials(user_id: str) -> Credentials:
+    data = userTokens.get(user_id)
+
+    if not data:
+        raise Exception("User not authenticated with google calendar")
+
+    return Credentials(
+        token=data["token"],
+        refresh_token=data["refresh_token"],
+        token_uri=data["token_uri"],
+        client_id=data["client_id"],
+        client_secret=data["client_secret"],
+        scopes=data["scopes"],
+    )
 
 
 if __name__ == "__main__":

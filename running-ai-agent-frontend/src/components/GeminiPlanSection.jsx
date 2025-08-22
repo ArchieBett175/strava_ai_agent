@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import api from "../api";
 import Loader from "./loader";
+import { motion, AnimatePresence } from "motion/react";
+import RenderCalendarCell from "./RenderCalendarCell";
 
 const plan = {
   weeks: [
@@ -82,7 +84,7 @@ const plan = {
       workouts: [
         {
           day: "Monday",
-          date: "2025-09-01",
+          date: "2025-08-31",
           type: "Rest",
           description: "Complete rest or light stretching.",
           distance_km: null,
@@ -91,7 +93,7 @@ const plan = {
         },
         {
           day: "Tuesday",
-          date: "2025-09-02",
+          date: "2025-09-01",
           type: "Interval Training",
           description:
             "Warm-up (1.5km easy), 5 x 1000m repeats at 4:40-4:55/km pace with 3 min jogging recovery between reps, Cool-down (1.5km easy). Focus on maintaining strong form.",
@@ -101,7 +103,7 @@ const plan = {
         },
         {
           day: "Wednesday",
-          date: "2025-09-03",
+          date: "2025-09-02",
           type: "Easy Run",
           description:
             "Easy conversational pace. Re-emphasize Zone 2 HR. If you struggled last week, slow down even more. This run is for recovery.",
@@ -111,7 +113,7 @@ const plan = {
         },
         {
           day: "Thursday",
-          date: "2025-09-04",
+          date: "2025-09-03",
           type: "Tempo Run",
           description:
             "Warm-up (1.5km easy), 4km at a comfortably hard tempo pace (5:10-5:20/km), Cool-down (1.5km easy). Maintain a steady effort throughout the tempo segment.",
@@ -121,7 +123,7 @@ const plan = {
         },
         {
           day: "Friday",
-          date: "2025-09-05",
+          date: "2025-09-04",
           type: "Rest",
           description: "Complete rest or light active recovery.",
           distance_km: null,
@@ -130,7 +132,7 @@ const plan = {
         },
         {
           day: "Saturday",
-          date: "2025-09-06",
+          date: "2025-09-05",
           type: "Long Run",
           description:
             "Long easy run. Continue to focus on maintaining Zone 2 heart rate. It's okay to take short walk breaks if your HR spikes.",
@@ -140,7 +142,7 @@ const plan = {
         },
         {
           day: "Sunday",
-          date: "2025-09-07",
+          date: "2025-09-06",
           type: "Rest",
           description: "Complete rest or very light stretching/mobility work.",
           distance_km: null,
@@ -169,13 +171,16 @@ const monthsMap = {
 
 const GeminiPlanSection = ({ gemAnalysed }) => {
   const [loading, setloading] = useState(false);
+  const [planLoaded, setPlanLoaded] = useState(false);
   const [error, setError] = useState();
-  //   const [plan, setPlan] = useState();
+  const [plan, setPlan] = useState();
   const hasFetched = useRef(false);
+  const [calendar, setCalendar] = useState([]);
 
   const getGemPlan = async () => {
     console.log("Fetching");
     if (hasFetched.current) {
+      console.log("Already fetched, skipping...");
       return;
     }
 
@@ -187,7 +192,9 @@ const GeminiPlanSection = ({ gemAnalysed }) => {
       console.log("fetching plan");
       if (res) {
         const data = res.data;
-        setPlan(() => data.planData);
+        setPlan(data.planData);
+        setPlanLoaded(true);
+        formatCalendar(data.planData);
       }
     } catch (error) {
       console.error(
@@ -195,6 +202,7 @@ const GeminiPlanSection = ({ gemAnalysed }) => {
         error
       );
       setError(error);
+      hasFetched.current = false;
     } finally {
       setloading(false);
     }
@@ -204,59 +212,113 @@ const GeminiPlanSection = ({ gemAnalysed }) => {
     if (gemAnalysed) {
       getGemPlan();
     }
-    // console.log(getMonths());
   }, [gemAnalysed]);
 
-  const getMonths = () => {
-    const weeks = plan.weeks;
+  const formatCalendar = (planData = plan) => {
+    if (!planData?.weeks) return;
+    let calendar = [];
+    const weeks = planData.weeks;
 
-    const months = {};
+    let currentMonth = null;
 
     for (let i = 0; i < weeks.length; i++) {
       const week = weeks[i];
-      const mondayMonth = week.workouts[0].date.slice(5, 7);
-      const sundayMonth = week.workouts[6].date.slice(5, 7);
-
-      if (months[mondayMonth] === undefined) {
-        months[mondayMonth] = 1;
-      } else if (months[sundayMonth] === undefined) {
-        months[sundayMonth] = 1;
+      let weekArray = [];
+      for (let j = 0; j < week.workouts.length; j++) {
+        const workout = week.workouts[j];
+        const workoutDate = formatDate(workout.day, workout.date);
+        if (workoutDate[2] != currentMonth) {
+          currentMonth = workoutDate[2];
+          if (j === 0) {
+            calendar.push([[currentMonth], [1], [1], [1], [1], [1], [1]]);
+          } else {
+            for (let n = j; n < 7; n++) {
+              weekArray.push([0]);
+            }
+            calendar.push(weekArray);
+            calendar.push([[currentMonth], [1], [1], [1], [1], [1], [1]]);
+            weekArray = [];
+            for (let m = 0; m < j; m++) {
+              weekArray.push([0]);
+            }
+          }
+        }
+        weekArray.push([workout]);
       }
+      calendar.push(weekArray);
     }
-
-    const titleMonths = [];
-    for (let month in months) {
-      titleMonths.push(monthsMap[month]);
-    }
-
-    return titleMonths;
+    // console.log(calendar);
+    setCalendar(calendar);
   };
 
   const formatDate = (day, date) => {
     const month = monthsMap[date.slice(5, 7)];
     const dayNum = date.slice(8);
-    const accent = () => {
-      if (
-        (parseInt(dayNum) > 3 && parseInt(dayNum) < 21) ||
-        (parseInt(dayNum) > 23 && parseInt(dayNum) < 31)
-      ) {
-        return "th";
-      } else if (parseInt(dayNum.slice(-1)) === 1) {
-        return "st";
-      } else if (parseInt(dayNum.slice(-1)) === 2) {
-        return "nd";
-      } else {
-        return "rd";
+    const getOrdinal = (num) => {
+      const n = parseInt(num);
+      if (n > 3 && n < 21) return "th";
+      switch (n % 10) {
+        case 1:
+          return "st";
+        case 2:
+          return "nd";
+        case 3:
+          return "rd";
+        default:
+          return "th";
       }
     };
 
-    return [day, [dayNum, accent()].join(""), month];
+    return [day, `${dayNum}${getOrdinal(dayNum)}`, month];
   };
 
   return (
-    <div className="relative text-white w-full flex justify-center">
-      <div className="w-[90%] h-screen bg-red-200">
-        <h1></h1>
+    <div className="relative text-white w-full flex justify-center p-4 mb-15">
+      <div className="w-full max-w-6xl">
+        <div className="flex justify-center">
+          {loading && (
+            <div className="flex flex-col items-center">
+              <h1 className="text-3xl font-rubik">
+                Generating your 5 week plan{" "}
+              </h1>
+              <h1 className="text-xl font-rubik mt-5 text-zinc-400">
+                This may take a while
+              </h1>
+              <Loader />
+            </div>
+          )}
+        </div>
+        {planLoaded && (
+          <>
+            <h2 className="text-4xl font-bold mb-4 text-center">
+              Training Plan
+            </h2>
+            <div className="grid grid-cols-7 gap-2">
+              {/* Day headers */}
+              {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
+                <div
+                  key={day}
+                  className="text-center font-bold p-2 bg-zinc-800 rounded"
+                >
+                  {day}
+                </div>
+              ))}
+
+              {/* Calendar cells */}
+              {calendar.map((week, weekIndex) =>
+                week.map((cellData, dayIndex) => (
+                  <RenderCalendarCell
+                    cellData={cellData}
+                    weekIndex={weekIndex}
+                    dayIndex={dayIndex}
+                    formatDate={formatDate}
+                    key={`${weekIndex}-${dayIndex}`}
+                  />
+                ))
+              )}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

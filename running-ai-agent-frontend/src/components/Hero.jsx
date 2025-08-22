@@ -55,7 +55,7 @@ const Hero = ({ setStravaData }) => {
           height: `calc(${SECTION_HEIGHT}px + 100vh)`,
         }}
       >
-        <div className="absolute w-3/4 flex flex-col items-center top-50 place-self-center">
+        <div className="absolute w-3/4 flex flex-col items-center top-60   place-self-center">
           <div className="font-regular text-7xl font-rubik w-full z-10">
             <h1 className=" text-shadow-lg ">Get Your next training block</h1>
             <h1 className="text-gray-400 text-shadow-lg">
@@ -169,7 +169,7 @@ const ParallaxImages = () => {
         src={heroImages[2].source}
         alt={heroImages[2].alt}
         start={200}
-        end={-350}
+        end={-550}
         className={"w-5/12  shadow-2xl ml-auto"}
       />
     </div>
