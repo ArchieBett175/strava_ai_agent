@@ -6,6 +6,7 @@ import StravaImportSection from "./components/StravaImportSection";
 import { ReactLenis } from "lenis/dist/lenis-react";
 import GeminiAnalysisSection from "./components/GeminiAnalysisSection";
 import GeminiPlanSection from "./components/GeminiPlanSection";
+import CalendarExportSection from "./components/CalendarExportSection";
 
 function App() {
   const [stravaData, setStravaData] = useState(null);
@@ -22,6 +23,7 @@ function App() {
         )}
         <GeminiAnalysisSection setGemAnalysed={setGemAnalysed} />
         <GeminiPlanSection gemAnalysed={gemAnalysed} />
+        <CalendarExportSection />
       </div>
     </ReactLenis>
   );

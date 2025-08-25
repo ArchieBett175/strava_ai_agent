@@ -3,6 +3,7 @@ import api from "../api";
 import Loader from "./loader";
 import { motion, AnimatePresence } from "motion/react";
 import RenderCalendarCell from "./RenderCalendarCell";
+import CalendarExportSection from "./CalendarExportSection";
 
 const plan = {
   weeks: [
