@@ -412,13 +412,19 @@ async def google_callback(request: Request):
     )
 
 
-@app.post("/times", response_model=Times)
+@app.post("/times")
 def valTimes(times: Times):
-    print(times)
-    inputCalTimeTimeZone(times.startTime, times.timeZone)
-    print("success")
+    try:
+        print(times)
+        inputCalTimeTimeZone(times.startTime, times.timeZone)
+        print("success")
 
-    return times
+        return {
+            "message": "Calendar uploaded successfully to google calendar",
+            "data": times,
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail="Calendar upload failed")
 
 
 class StravaDataManager:
@@ -730,6 +736,7 @@ def getGeminiPlan():
 
 
 def inputCalTimeTimeZone(time, timeZone):
+    # Update function to post to google calendar,
     calEventManager = calendarEventManager()
     timeValid = calEventManager.validatedStartTime(time)
     timeZoneValid = calEventManager.validatedUserTimeZone(timeZone)
